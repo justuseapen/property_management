@@ -8,6 +8,7 @@ gem "coffee-rails", "~> 4.0.0"
 gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder", "~> 1.2"
+gem "simple_form"
 group :doc do
   gem "sdoc", require: false
 end
@@ -23,4 +24,6 @@ group :development, :test do
   gem "valid_attribute"
   gem "capybara"
   gem "quiet_assets"
+  gem "guard-rspec"
+
 end
