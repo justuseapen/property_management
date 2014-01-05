@@ -18,14 +18,14 @@ So that I can keep track of our relationships with owners
 		fill_in 'Last Name', with: 'Hanson'
 		fill_in 'Email', with: 'danishgirl@varkalabeach.in'
 		fill_in 'Company', with: 'Danske Bank'
-		click_button 'Add Owner'
+		click_button 'Create Owner'
 
 		expect(page).to have_content "Owner successfully added"
 	end
 	scenario 'associate enters invalid owner information' do
 		visit root_path
 		click_link 'Add Owner'
-		click_button 'Add Owner'
+		click_button 'Create Owner'
 
 		expect(page).to have_content "can't be blank"
 	end

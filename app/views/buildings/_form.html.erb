@@ -1,0 +1,10 @@
+<%= simple_form_for @building do |f| %>
+	<%= f.input :street_address, label: false, placeholder: 'Street address' %>
+	<%= f.input :city,label: false, placeholder: 'City' %>
+	<%= 
+	f.input :state,label: false, placeholder: 'State', as: :select, collection:us_states 
+	%>
+	<%= f.input :zip_code,label: false, placeholder: 'Zip Code' %>
+	<%= f.input :description,label: false, placeholder: 'Description(Optional)', as: :text %>
+	<%= f.button :submit %>
+<% end %>

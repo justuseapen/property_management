@@ -15,22 +15,22 @@ So that I can refer back to pertinent information
 
 	scenario 'associate enters valid building information' do
 		visit root_path
-		click_link 'Add Building'
-		fill_in 'Address', with: '713 Cedar Lane' 
+		click_link 'New Building'
+		fill_in "Street address", with: '713 Cedar Lane' 
 		fill_in	'City', with: 'Bel Air'
-		select 'MD', from: 'State'
+		select 'Maryland', from: 'State'
 		fill_in 'Zip Code', with: '21015'
-		fill_in 'Description', with: 'Beautiful 12-acre farm only minutes from the Festival'
-		click_button 'Add Building'
+		fill_in 'Description(Optional)', with: 'Beautiful 12-acre farm only minutes from the Festival'
+		click_button 'Create Building'
 
-		expect(page).to have_content('Building successfully added')
+		expect(page).to have_content('Building was successfully added.')
 		expect(page).to have_content('713 Cedar Lane')
 	end
 
 	scenario 'associate enters invalid information' do
 		visit root_path
-		click_link 'Add Building'
-		click_button 'Add Building'
+		click_link 'New Building'
+		click_button 'Create Building'
 
 		expect(page).to have_content "can't be blank"
 	end

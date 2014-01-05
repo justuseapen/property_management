@@ -20,7 +20,7 @@ feature 'associates can link owners with their buildings', %Q{
 		fill_in 'Zip Code', with: '21015'
 		fill_in 'Description', with: 'Beautiful 12-acre farm only minutes from the Festival'
 		select owner.email, from: 'Owner'
-		click_button 'Add Building'
+		click_button 'Create Building'
 
 		expect(page).to have_content('Building successfully added')
 		expect(page).to have_content('713 Cedar Lane')
