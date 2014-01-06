@@ -20,7 +20,7 @@ So that I can keep track of our relationships with owners
 		fill_in 'Company(optional)', with: 'Danske Bank'
 		click_button 'Create Owner'
 
-		expect(page).to have_content "Owner successfully added"
+		expect(page).to have_content "Owner was successfully added."
 	end
 	scenario 'associate enters invalid owner information' do
 		visit root_path

@@ -6,5 +6,6 @@
 	%>
 	<%= f.input :zip_code,label: false, placeholder: 'Zip Code' %>
 	<%= f.input :description,label: false, placeholder: 'Description(Optional)', as: :text %>
+	<%= f.association :owner, collection: Owner.all.map{|o| o.email},include_blank: true, prompt: 'Choose an owner' %>
 	<%= f.button :submit %>
 <% end %>
