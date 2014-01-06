@@ -1,0 +1,7 @@
+<%= simple_form_for @owner do |f| %>
+	<%= f.input :f_name, label: false, placeholder: 'First Name' %>
+	<%= f.input :l_name, label: false, placeholder: 'Last Name' %>
+	<%= f.input :email, label: false, placeholder: 'Email' %>
+	<%= f.input :company, label: false, placeholder: 'Company(optional)' %>
+	<%= f.button :submit %>
+<% end %>

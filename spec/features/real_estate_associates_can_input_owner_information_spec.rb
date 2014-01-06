@@ -17,7 +17,7 @@ So that I can keep track of our relationships with owners
 		fill_in 'First Name', with: 'Sara'
 		fill_in 'Last Name', with: 'Hanson'
 		fill_in 'Email', with: 'danishgirl@varkalabeach.in'
-		fill_in 'Company', with: 'Danske Bank'
+		fill_in 'Company(optional)', with: 'Danske Bank'
 		click_button 'Create Owner'
 
 		expect(page).to have_content "Owner successfully added"
