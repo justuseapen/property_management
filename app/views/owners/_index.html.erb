@@ -1,0 +1,25 @@
+<h1>Listing owners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owners.each do |o| %>
+      <tr>
+        <td>
+        <%= link_to "#{o.f_name}, #{o.l_name}", owner_path(o) %>
+        </td>
+        <td><%= link_to 'Show', o %></td>
+        <td><%= link_to 'Destroy Owner', o, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

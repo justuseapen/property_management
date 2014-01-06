@@ -25,4 +25,20 @@ feature 'associates can link owners with their buildings', %Q{
 		expect(page).to have_content('Building was successfully added.')
 		expect(page).to have_content('713 Cedar Lane')
 	end
+	scenario 'buildings are deleted with owner' do
+		owner = FactoryGirl.create(:owner)
+
+		building = FactoryGirl.create(:building, owner: owner)
+		
+		visit root_path
+		expect(page).to have_content(owner.f_name)
+		expect(page).to have_content(building.street_address)
+
+		click_link 'Destroy Owner'
+
+		expect(page).to_not have_content(owner.f_name)
+		expect(page).to_not have_content(building.street_address)
+
+
+	end
 end

@@ -5,7 +5,7 @@ FactoryGirl.define do
     street_address "MyString"
     city "MyString"
     state "MyString"
-    zip_code "MyString"
+    zip_code "21014"
     description "MyText"
     owner_id 1
   end

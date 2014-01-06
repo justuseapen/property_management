@@ -1,6 +1,7 @@
 class BuildingsController < ApplicationController
 	def index
 		@buildings = Building.all
+    @owners = Owner.all
 	end
 	def show
     @building = Building.find(params[:id])
@@ -13,7 +14,7 @@ class BuildingsController < ApplicationController
 
     respond_to do |format|
       if @building.save
-        format.html { redirect_to @building, notice: 'Building was successfully added.' }
+        format.html { redirect_to root_path, notice: 'Building was successfully added.' }
       else
         format.html { render action: 'new' }
       end
@@ -29,9 +30,10 @@ class BuildingsController < ApplicationController
     end
 	end
 	def destroy
+    @building = Building.find(params[:id])
 		@building.destroy
     respond_to do |format|
-      format.html { redirect_to buildings_url }
+      format.html { redirect_to root_path }
     end
 	end
 	private
@@ -40,6 +42,6 @@ class BuildingsController < ApplicationController
     end
 
     def building_params
-      params.require(:building).permit(:street_address,:city,:state,:zip_code,:description)
+      params.require(:building).permit(:street_address,:city,:state,:zip_code,:description, :owner_id)
     end
 end

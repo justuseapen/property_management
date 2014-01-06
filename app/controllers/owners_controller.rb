@@ -1,4 +1,7 @@
 class OwnersController < ApplicationController
+  def index
+    @owners = Owner.all
+  end
 	def new
 		@owner = Owner.new
 	end
@@ -6,7 +9,7 @@ class OwnersController < ApplicationController
 		@owner = Owner.new(owner_params)
     respond_to do |format|
       if @owner.save
-        format.html { redirect_to @owner, notice: 'Owner was successfully added.' }
+        format.html { redirect_to root_path, notice: 'Owner was successfully added.' }
       else
         format.html { render action: 'new' }
       end
@@ -15,6 +18,13 @@ class OwnersController < ApplicationController
 	def show
     @owner = Owner.find(params[:id])
 	end
+  def destroy
+    @owner = Owner.find(params[:id])
+    @owner.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path }
+    end
+  end
 	private
     def set_owner
       @owner = Owner.find(params[:id])
